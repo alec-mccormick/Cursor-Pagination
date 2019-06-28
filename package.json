@@ -1,6 +1,6 @@
 {
   "name": "cursor-pagination",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Page token generator for javascript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,12 @@
       "email": "alec.s.mccormick@gmail.com"
     }
   ],
-  "keywords": ["cursor", "pagination", "paging", "token"],
+  "keywords": [
+    "cursor",
+    "pagination",
+    "paging",
+    "token"
+  ],
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",
