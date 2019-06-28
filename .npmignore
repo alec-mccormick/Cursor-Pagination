@@ -1,0 +1,8 @@
+src
+test
+.envrc
+.npmrc
+.idea
+.gitignore
+scratch
+tsconfig.json

@@ -1,0 +1,32 @@
+{
+  "name": "cursor-pagination",
+  "version": "1.0.0",
+  "description": "Page token generator for javascript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "postbuild": "copyfiles -u 1 src/*.proto dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alec-mccormick/Cursor-Pagination.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alec-mccormick/Cursor-Pagination/issues"
+  },
+  "homepage": "https://github.com/alec-mccormick/Cursor-Pagination#readme",
+  "dependencies": {
+    "@google-cloud/precise-date": "^1.0.1",
+    "protobufjs": "^6.8.8"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.10",
+    "copyfiles": "^2.1.0",
+    "rimraf": "^2.6.3",
+    "typescript": "^3.5.2"
+  }
+}

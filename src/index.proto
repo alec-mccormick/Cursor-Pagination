@@ -1,0 +1,25 @@
+syntax = "proto3";
+package sommaht.cursor.v1;
+
+
+message PageTokenPayload {
+  repeated PageTokenEntry entries = 1;
+}
+
+message PageTokenEntry {
+  string key = 1;
+  bool asc = 2;
+
+  oneof value {
+    string sValue = 3;
+    double nValue = 4;
+    bool bValue = 5;
+    Timestamp tValue = 6;
+  }
+}
+
+
+message Timestamp {
+  int64 seconds = 1;
+  int32 nanos = 2;
+}
