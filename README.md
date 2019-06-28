@@ -4,6 +4,7 @@ Page token generator for javascript using Protobufjs
 Example Usage:
 ```javascript
 const { CursorPagination } = require('cursor-pagination');
+
 const pagination = new CursorPagination();
 
 // Returns a buffer
@@ -22,11 +23,13 @@ const parsedToken = pagination.parseToken(Buffer.from(token, 'base64'));
 ```
 
 
-Pass in an AES cipher Key return an encrypted token
+Pass in an AES cipher Key to return an encrypted token
 ```javascript
 const { CursorPagination } = require('cursor-pagination');
+
+// Key should be a 16 character hex string
 const pagination = new CursorPagination({
-  aesKey: '0000000000000000'
+  aesKey: '2cc3b35dd381ff3a' // CHANGE ME
 });
 
 // Encrypted with the cipher key passed in
