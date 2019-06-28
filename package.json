@@ -4,6 +4,12 @@
   "description": "Page token generator for javascript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "authors": [
+    {
+      "name": "Alec McCormick",
+      "email": "alec.s.mccormick@gmail.com"
+    }
+  ],
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",
