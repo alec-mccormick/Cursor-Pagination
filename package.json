@@ -10,6 +10,7 @@
       "email": "alec.s.mccormick@gmail.com"
     }
   ],
+  "keywords": ["cursor", "pagination", "paging", "token"],
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",
@@ -19,8 +20,8 @@
     "type": "git",
     "url": "git+https://github.com/alec-mccormick/Cursor-Pagination.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Alec McCormick",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/alec-mccormick/Cursor-Pagination/issues"
   },
