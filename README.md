@@ -40,3 +40,20 @@ const tokenData = pagination.createToken({
   ]
 });
 ```
+
+### Notes
+
+When working with SQL, the parsed token should be converted into a boolean logic statement.
+A single column can easily be turned into the statement `WHERE id > @id`, however dealing with multiple columns becomes a little trickier.
+Pagination based on multiple columns might look something like this:
+```sql
+WHERE (column1 > @value1)
+    OR (column1 = @value1 AND column2 > @value2)
+    OR (column1 = @value1 AND column2 = @value2 AND column3 > @value3)
+```
+
+The combination of these columns must be unique so it is probably a good idea to always make the last column of the token the primary key for the table.
+
+### References
+https://www.sitepoint.com/paginating-real-time-data-cursor-based-pagination/
+https://stackoverflow.com/questions/38017054/mysql-cursor-based-pagination-with-multiple-columns
