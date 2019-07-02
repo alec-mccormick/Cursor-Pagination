@@ -109,9 +109,16 @@ export class CursorPagination {
 
   private convertPageTokenEntryFromProto(entry: ProtoPageTokenEntry): PageTokenEntry {
     const { key, asc } = entry;
-    const value = entry.sValue || entry.nValue || entry.bValue || (entry.tValue && new PreciseDate(entry.tValue));
+    const value = this.parseValueFromProtoEntry(entry);
 
     return { key, asc, value };
+  }
+
+  private parseValueFromProtoEntry(entry: ProtoPageTokenEntry): any {
+    if (typeof entry.sValue !== 'undefined') return entry.sValue;
+    if (typeof entry.nValue !== 'undefined') return entry.nValue;
+    if (typeof entry.bValue !== 'undefined') return entry.bValue;
+    if (typeof entry.tValue !== 'undefined') return new PreciseDate(entry.tValue);
   }
 
   // ===========================================================================================
