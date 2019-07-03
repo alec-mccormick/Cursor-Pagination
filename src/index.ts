@@ -82,7 +82,7 @@ export class CursorPagination {
   // ===========================================================================================
   private convertPageTokenPayloadToProto(payload: PageTokenPayload): ProtoPageTokenPayload {
     return {
-      entries: payload.entries.map(this.convertPageTokenEntryToProto)
+      entries: payload.entries.map(this.convertPageTokenEntryToProto.bind(this))
     }
   }
 
