@@ -1,6 +1,6 @@
 {
   "name": "cursor-pagination",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Page token generator for javascript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
