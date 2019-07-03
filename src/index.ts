@@ -116,11 +116,7 @@ export class CursorPagination {
   }
 
   private parseValueFromProtoEntry(entry: ProtoPageTokenEntry): any {
-    if (entry.value === 'tValue') {
-      return new PreciseDate(entry.tValue);
-    }
-
-    return entry[entry.value];
+    return (entry.value === 'tValue') ? new PreciseDate(entry.tValue) : entry[entry.value];
   }
 
   // ===========================================================================================
