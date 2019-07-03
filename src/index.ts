@@ -39,6 +39,7 @@ interface ProtoPageTokenEntry {
     seconds: number;
     nanos: number;
   }
+  value?: string;
 }
 
 interface ProtoPageTokenPayload {
@@ -94,7 +95,7 @@ export class CursorPagination {
     if (typeof value === 'boolean') return { key, asc, bValue: value };
 
     if (value instanceof Date) {
-      const date = (value instanceof PreciseDate) ? value : new PreciseDate(value);
+      const date = this.isPreciseDate(value) ? value : new PreciseDate(value);
       return { key, asc, tValue: date.toStruct() }
     }
 
@@ -115,10 +116,11 @@ export class CursorPagination {
   }
 
   private parseValueFromProtoEntry(entry: ProtoPageTokenEntry): any {
-    if (typeof entry.sValue !== 'undefined') return entry.sValue;
-    if (typeof entry.nValue !== 'undefined') return entry.nValue;
-    if (typeof entry.bValue !== 'undefined') return entry.bValue;
-    if (typeof entry.tValue !== 'undefined') return new PreciseDate(entry.tValue);
+    if (entry.value === 'tValue') {
+      return new PreciseDate(entry.tValue);
+    }
+
+    return entry[entry.value];
   }
 
   // ===========================================================================================
@@ -143,5 +145,9 @@ export class CursorPagination {
     const iv = data.slice(0, 16);
     const decipher = createDecipheriv(algorithm, cipherKey, iv);
     return Buffer.concat([decipher.update(data.slice(16)), decipher.final()]);
+  }
+
+  private isPreciseDate(date: any): date is PreciseDate {
+    return date instanceof Date && (typeof date['toStruct'] === 'function');
   }
 }
